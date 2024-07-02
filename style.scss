@@ -1,0 +1,424 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+
+    /* google字形 */
+    font-family: "Noto Sans TC", sans-serif;
+    box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// 為了避免點擊父層時點錯 點i文字 變成只有那格。點i以外才變成整個div
+i {
+    pointer-events: none;
+}
+
+body {
+    background: linear-gradient(90deg, rgb(84, 130, 255), rgb(100, 255, 134));
+}
+
+.container {
+    background: linear-gradient(90deg, rgb(239, 247, 140), rgb(235, 167, 167));
+    margin: 5rem;
+    padding-bottom: 2rem;
+    border-radius: 10px;
+}
+
+header {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .logo-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 120px;
+            margin-bottom: 5px;
+        }
+    }
+
+        h1 {
+            color: white;
+            font-size: 3rem;
+            font-weight: bolder;
+            text-shadow: 0px 5px 0px #000;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input,
+        button {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            font-size: 1.75rem;
+            margin: 0.1rem;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: rgb(0, 146, 114);
+            color: white;
+        }
+
+        // css arrorow hidden 隱藏^v箭頭
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    // div.sort{
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     margin: 1rem 0;
+
+    //     button{
+    //         cursor: pointer;
+    //         background-color: rgb(0, 146, 114);
+    //         color: white;
+    //         border: none;
+    //         padding: 0.25rem 0.5rem;
+    //         font-size: 1.75rem;
+
+    //         margin: 1rem;
+    //     }
+    // }
+
+    // div.clear{
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     margin: 1rem 0;
+
+    //     button{
+    //         cursor: pointer;
+    //         background-color: rgb(36, 150, 243);
+    //         color: white;
+    //         border: none;
+    //         padding: 0.25rem 0.5rem;
+    //         font-size: 1.75rem;
+
+    //         margin: 1rem;
+    //     }
+    // }
+
+    .buttons-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem; // 按鈕之間的間距
+        margin: 1rem 0;
+
+        div.sort button,
+        div.clear button {
+            cursor: pointer;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            font-size: 1.75rem;
+            margin: 0; // 移除 margin，使用 flex 容器的間距
+        }
+
+        div.sort button {
+            background-color: rgb(0, 146, 114);
+        }
+
+        div.clear button {
+            background-color: rgb(36, 150, 243);
+        }
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        div.todo {
+            width: 50vw;
+            display: flex;
+            align-items: center;
+            margin: 0.2rem 0;
+
+            // 讓刪除線動畫慢慢產生
+            transition: all 0.2s ease;
+
+            p {
+                background-color: #fff;
+                color: black;
+                padding: 0.25rem 0.5rem;
+                font-size: 1.75rem;
+                word-wrap: break-word;
+            }
+
+            p.todo-text {
+                width: 65%;
+                word-wrap: break-word;
+            }
+
+            p.todo-time {
+                width: 35%;
+                text-align: right;
+            }
+
+            button {
+                padding: 0.25rem 0.5rem;
+                font-size: 1.75rem;
+                cursor: pointer;
+                border: none;
+                color: white;
+            }
+
+            button.complete {
+                background-color: rgb(50, 255, 50);
+            }
+
+            button.trash {
+                background-color: red;
+            }
+        }
+    }
+
+    .done {
+        opacity: 0.5;
+        text-decoration: line-through;
+        text-decoration-thickness: 0.2rem;
+    }
+
+    @keyframes scaleUp {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes scaleDown {
+        to {
+            transform: scale(0);
+        }
+    }
+
+    @media screen and (max-width:768px) {
+
+        header {
+            height: 10vh;
+
+            h1 {
+                font-size: 2rem;
+                font-weight: bolder;
+                text-shadow: 0px 5px 0px #000;
+            }
+        }
+
+        form {
+            flex-direction: column;
+
+            input,
+            button {
+                width: 80%;
+                font-size: 1rem;
+            }
+
+            input[type="number"] {
+                width: 80%;
+            }
+
+            button {
+                font-size: 1rem;
+            }
+        }
+
+
+
+        .buttons-container {
+            flex-direction: column;
+            gap: 0.5rem;
+
+            div.sort button,
+            div.clear button {
+                width: 80%;
+                font-size: 1rem;
+            }
+        }
+
+        section {
+            width: 100%;
+
+            div.todo {
+                width: 90%;
+                flex-direction: column;
+                align-items: flex-start;
+
+                p {
+                    font-size: 1rem;
+                }
+
+                p.todo-text,
+                p.todo-time {
+                    width: 100%;
+                    text-align: left;
+                }
+
+                button {
+                    font-size: 1rem;
+                }
+
+            }
+        }
+
+    }
